@@ -1,5 +1,7 @@
 <?php
 
+use App\Post;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,15 @@
 */
 
 Route::get('/', function () {
+    // $note = BearSync\BearNote::whereTitle('Bear Sync')->first();
+
+    // Post::create([
+    //     'title' => $note->title,
+    //     'body' => $note->content,
+    // ]);
+
     return view('welcome');
 });
+
+Route::get('/posts', 'PostController@index')->name('posts.index');
+Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
